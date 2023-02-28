@@ -1,0 +1,49 @@
+body {
+  background: #222;
+}
+
+.accordion {
+  max-width: 600px;
+  margin: 4rem auto;
+  width: 90%;
+  font-family: "Raleway", sans-serif;
+  background: #f4f4f4;
+}
+.accordion__title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 1rem 1.5rem;
+  background: #5B5F97;
+  color: white;
+  cursor: pointer;
+  transition: .3s ease;
+  margin: 0;
+}
+.accordion__title:hover {
+  background: #484b77;
+}
+.accordion__copy {
+  visibility: hidden;
+  color: gray;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out,  padding 0.2s linear;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+}
+.accordion__copy.open {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+}
+
+.accordion__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
