@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animación de texto con CSS verticalmente en listado</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            display: flex;
+            gap: 10px;
+        }
+
+        #languageMarquee li {
+            --animation-duration: calc(23*2650ms);
+            animation: var(--animation-duration)fade-up 2000ms ease-in-out infinite;
+            will-change: opacity, transform;
+            opacity: 0;
+            z-index: -1;
+            display: inline;
+            position: absolute;
+            transform: translateY(100%)
+        }
+
+        #languageMarquee li:first-child {
+            opacity: 1;
+            animation: var(--animation-duration)fade-up-first 2650ms ease-in-out, 
+                       var(--animation-duration)fade-up calc(2650ms + var(--animation-duration))ease-in-out infinite;
+            transform: translateY(0)
+        }
+
+        #languageMarquee li:last-child {
+            position: static
+        }
+
+        @keyframes fade-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100%)
+            }
+
+            .25%,
+            4.1% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+
+            4.35%,
+            to {
+                opacity: 0;
+                transform: translateY(-100%)
+            }
+        }
+
+        @keyframes fade-up-first {
+
+            0%,
+            4.1% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+
+            4.35%,
+            to {
+                opacity: 0;
+                transform: translateY(-100%)
+            }
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <h2>Transición de texto vertical
+        <ul id="languageMarquee">
+            <li><span>the web</span>.</li>
+            <li style="animation-delay: 5300ms;"><span>JavaScript</span>.</li>
+            <li style="animation-delay: 7950ms;"><span>CSS</span>.</li>
+            <li style="animation-delay: 10600ms;"><span>HTML</span>.</li>
+            <li style="animation-delay: 13250ms;"><span>TypeScript</span>.</li>
+            <li style="animation-delay: 15900ms;"><span>React</span>.
+            </li>
+            <li style="animation-delay: 18550ms;"><span>images</span>.</li>
+            <li style="animation-delay: 21200ms;"><span>SASS</span>.</li>
+            <li style="animation-delay: 23850ms;"><span>SVG</span>.</li>
+            <li style="animation-delay: 26500ms;"><span>Vue</span>.</li>
+            <li style="animation-delay: 29150ms;"><span>libraries</span>.
+            </li>
+            <li style="animation-delay: 31800ms;"><span>Less</span>.</li>
+            <li style="animation-delay: 34450ms;"><span>CoffeeScript</span>.</li>
+            <li style="animation-delay: 37100ms;"><span>Node</span>.</li>
+            <li style="animation-delay: 39750ms;"><span>Stylus</span>.</li>
+            <li style="animation-delay: 42400ms;"><span>Pug</span>.</li>
+        </ul>
+    </h2>
+    
+</body>
+
+</html>
